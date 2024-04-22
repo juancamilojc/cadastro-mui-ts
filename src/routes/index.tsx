@@ -14,4 +14,4 @@ export const AppRoutes = () => {
             <Route path="*" element={<Navigate to="/pagina-inicial" />} />
         </Routes>
     );
-}
+};
