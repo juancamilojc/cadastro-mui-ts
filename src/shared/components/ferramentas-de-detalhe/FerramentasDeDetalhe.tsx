@@ -1,14 +1,22 @@
 import { Add, ArrowBack, Delete, Save } from "@mui/icons-material";
-import { Box, Button, Divider, Paper, useTheme } from "@mui/material";
+import { LoadingButton } from "@mui/lab";
+import { Box, Divider, Paper, useTheme } from "@mui/material";
 
 
 interface IFerramentasDeDetalheProps {
     textoBotaoNovo?: string;
+
     mostrarBotaoSalvar?: boolean;
     mostrarBotaoSalvarEVoltar?: boolean;
     mostrarBotaoDeletar?: boolean;
     mostrarBotaoNovo?: boolean;
     mostrarBotaoVoltar?: boolean;
+
+    mostrarBotaoSalvarCarregando?: boolean;
+    mostrarBotaoSalvarEVoltarCarregando?: boolean;
+    mostrarBotaoDeletarCarregando?: boolean;
+    mostrarBotaoNovoCarregando?: boolean;
+    mostrarBotaoVoltarCarregando?: boolean;
 
     aoClicarEmSalvar?: () => void;
     aoClicarEmSalvarEVoltar?: () => void;
@@ -19,11 +27,18 @@ interface IFerramentasDeDetalheProps {
 
 export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
     textoBotaoNovo = "Novo",
+
     mostrarBotaoSalvar = true,
     mostrarBotaoSalvarEVoltar = false,
     mostrarBotaoDeletar = true,
     mostrarBotaoNovo = true,
     mostrarBotaoVoltar = true,
+
+    mostrarBotaoSalvarCarregando = false,
+    mostrarBotaoSalvarEVoltarCarregando = false,
+    mostrarBotaoDeletarCarregando = false,
+    mostrarBotaoNovoCarregando = false,
+    mostrarBotaoVoltarCarregando = false,
 
     aoClicarEmSalvar,
     aoClicarEmSalvarEVoltar,
@@ -43,64 +58,80 @@ export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
             marginX={2}
             padding={1}
             paddingX={2}
-            gap={1}
+            gap={1.5}
         >
             { mostrarBotaoSalvar && (
-                <Button
+                <LoadingButton
+                    loading={mostrarBotaoSalvarCarregando}
+                    loadingPosition="start"
                     variant="contained"
                     color="primary"
                     disableElevation
                     startIcon={<Save />}
                     onClick={aoClicarEmSalvar}
-            >
-                Salvar
-            </Button>
+                >
+                    <span>Salvar</span> 
+                </LoadingButton>
             )}
+
             { mostrarBotaoSalvarEVoltar && (
-                <Button
+                <LoadingButton
+                    loading={mostrarBotaoSalvarEVoltarCarregando}
+                    loadingPosition="start"
                     variant="outlined"
                     color="primary"
                     disableElevation
                     startIcon={<Save />}
                     onClick={aoClicarEmSalvarEVoltar}
-            >
-                Salvar e Voltar
-            </Button>
+                >
+                    <span>Salvar e Voltar</span>
+                </LoadingButton>
             )}
+
             { mostrarBotaoDeletar && (
-                <Button
+                <LoadingButton
+                    loading={mostrarBotaoDeletarCarregando}
+                    loadingPosition="start"
                     variant="outlined"
                     color="primary"
                     disableElevation
                     startIcon={<Delete />}
                     onClick={aoClicarEmDeletar}
-            >
-                Deletar
-            </Button>
+                >
+                    <span>Deletar</span>
+                </LoadingButton>
             )}
+
             { mostrarBotaoNovo && (
-                <Button
+                <LoadingButton
+                    loading={mostrarBotaoNovoCarregando}
+                    loadingPosition="start"
                     variant="outlined"
                     color="primary"
                     disableElevation
                     startIcon={<Add />}
                     onClick={aoClicarEmNovo}
-            >
-                {textoBotaoNovo}
-            </Button>
+                >
+                    <span>{textoBotaoNovo}</span>
+                </LoadingButton>
             )}
+
             <Divider variant="middle" orientation="vertical" />
+            
             { mostrarBotaoVoltar && (
-                <Button
+                <LoadingButton
+                    loading={mostrarBotaoVoltarCarregando}
+                    loadingPosition="start"
                     variant="outlined"
                     color="primary"
                     disableElevation
                     startIcon={<ArrowBack />}
                     onClick={aoClicarEmVoltar}
-            >
-                Voltar
-            </Button>
+                >
+                    <span>Voltar</span>
+                </LoadingButton>
             )}
+
         </Box>
     );
 }
