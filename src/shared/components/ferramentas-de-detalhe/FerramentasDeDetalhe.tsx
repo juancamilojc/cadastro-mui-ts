@@ -2,7 +2,35 @@ import { Add, ArrowBack, Delete, Save } from "@mui/icons-material";
 import { Box, Button, Divider, Paper, useTheme } from "@mui/material";
 
 
-export const FerramentasDeDetalhe: React.FC = () => {
+interface IFerramentasDeDetalheProps {
+    textoBotaoNovo?: string;
+    mostrarBotaoSalvar?: boolean;
+    mostrarBotaoSalvarEVoltar?: boolean;
+    mostrarBotaoDeletar?: boolean;
+    mostrarBotaoNovo?: boolean;
+    mostrarBotaoVoltar?: boolean;
+
+    aoClicarEmSalvar?: () => void;
+    aoClicarEmSalvarEVoltar?: () => void;
+    aoClicarEmDeletar?: () => void;
+    aoClicarEmNovo?: () => void;
+    aoClicarEmVoltar?: () => void;
+}
+
+export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
+    textoBotaoNovo = "Novo",
+    mostrarBotaoSalvar = true,
+    mostrarBotaoSalvarEVoltar = false,
+    mostrarBotaoDeletar = true,
+    mostrarBotaoNovo = true,
+    mostrarBotaoVoltar = true,
+
+    aoClicarEmSalvar,
+    aoClicarEmSalvarEVoltar,
+    aoClicarEmDeletar,
+    aoClicarEmNovo,
+    aoClicarEmVoltar,
+}) => {
     const theme = useTheme();
 
     return (
@@ -17,52 +45,62 @@ export const FerramentasDeDetalhe: React.FC = () => {
             paddingX={2}
             gap={1}
         >
-            <Button
-                variant="contained"
-                color="primary"
-                disableElevation
-                startIcon={<Save />}
-                // onClick={}
+            { mostrarBotaoSalvar && (
+                <Button
+                    variant="contained"
+                    color="primary"
+                    disableElevation
+                    startIcon={<Save />}
+                    onClick={aoClicarEmSalvar}
             >
                 Salvar
             </Button>
-            <Button
-                variant="outlined"
-                color="primary"
-                disableElevation
-                startIcon={<Save />}
-                // onClick={}
+            )}
+            { mostrarBotaoSalvarEVoltar && (
+                <Button
+                    variant="outlined"
+                    color="primary"
+                    disableElevation
+                    startIcon={<Save />}
+                    onClick={aoClicarEmSalvarEVoltar}
             >
                 Salvar e Voltar
             </Button>
-            <Button
-                variant="outlined"
-                color="primary"
-                disableElevation
-                startIcon={<Delete />}
-                // onClick={}
+            )}
+            { mostrarBotaoDeletar && (
+                <Button
+                    variant="outlined"
+                    color="primary"
+                    disableElevation
+                    startIcon={<Delete />}
+                    onClick={aoClicarEmDeletar}
             >
                 Deletar
             </Button>
-            <Button
-                variant="outlined"
-                color="primary"
-                disableElevation
-                startIcon={<Add />}
-                // onClick={}
+            )}
+            { mostrarBotaoNovo && (
+                <Button
+                    variant="outlined"
+                    color="primary"
+                    disableElevation
+                    startIcon={<Add />}
+                    onClick={aoClicarEmNovo}
             >
-                Novo
+                {textoBotaoNovo}
             </Button>
+            )}
             <Divider variant="middle" orientation="vertical" />
-            <Button
-                variant="outlined"
-                color="primary"
-                disableElevation
-                startIcon={<ArrowBack />}
-                // onClick={}
+            { mostrarBotaoVoltar && (
+                <Button
+                    variant="outlined"
+                    color="primary"
+                    disableElevation
+                    startIcon={<ArrowBack />}
+                    onClick={aoClicarEmVoltar}
             >
                 Voltar
             </Button>
+            )}
         </Box>
     );
 }
