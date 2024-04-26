@@ -13,6 +13,7 @@ import {
   useTheme,
 } from '@mui/material';
 import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
+
 import { useAppThemeContext, useDrawerContext } from '../../contexts';
 
 interface IMenuLateralProps {

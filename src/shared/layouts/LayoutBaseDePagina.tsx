@@ -1,6 +1,7 @@
 import { Menu, MenuOpen } from '@mui/icons-material';
 import { Box, IconButton, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { ReactNode } from 'react';
+
 import { useDrawerContext } from '../contexts';
 
 interface ILayoutBaseDePaginaProps {
