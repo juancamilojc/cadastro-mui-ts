@@ -62,7 +62,12 @@ export const MenuLateral: React.FC<IMenuLateralProps> = ({ children }) => {
         variant={smDown ? 'temporary' : 'permanent'}
         onClose={toggleDrawerOpen}
       >
-        <Box width={theme.spacing(28)} height="100%" display="flex" flexDirection="column">
+        <Box
+          width={theme.spacing(28)}
+          height="100%"
+          display="flex"
+          flexDirection="column"
+        >
           <Box
             width="100%"
             height={theme.spacing(20)}
@@ -92,8 +97,12 @@ export const MenuLateral: React.FC<IMenuLateralProps> = ({ children }) => {
           <Box>
             <List component="nav">
               <ListItemButton onClick={toggleTheme}>
-                <ListItemIcon>{themeName === 'light' ? <DarkMode /> : <LightMode />}</ListItemIcon>
-                <ListItemText primary={themeName === 'light' ? 'Tema Escuro' : 'Tema Claro'} />
+                <ListItemIcon>
+                  {themeName === 'light' ? <DarkMode /> : <LightMode />}
+                </ListItemIcon>
+                <ListItemText
+                  primary={themeName === 'light' ? 'Tema Escuro' : 'Tema Claro'}
+                />
               </ListItemButton>
             </List>
           </Box>
