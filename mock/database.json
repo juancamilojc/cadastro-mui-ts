@@ -3,8 +3,38 @@
     {
       "id": 1,
       "cidadeId": 1,
-      "nomeCompleto": "João Silva",
-      "email": "jaosilva@email.com"
+      "nomeCompleto": "Maria Oliveira",
+      "email": "maria.oliveira@email.com"
+    },
+    {
+      "id": 2,
+      "cidadeId": 1,
+      "nomeCompleto": "Pedro Almeida",
+      "email": "pedro.almeida@email.com"
+    },
+    {
+      "id": 3,
+      "cidadeId": 1,
+      "nomeCompleto": "Ana Santos",
+      "email": "ana.santos@email.com"
+    },
+    {
+      "id": 4,
+      "cidadeId": 1,
+      "nomeCompleto": "Lucas Pereira",
+      "email": "lucas.pereira@email.com"
+    },
+    {
+      "id": 5,
+      "cidadeId": 1,
+      "nomeCompleto": "Carla Silva",
+      "email": "carla.silva@email.com"
+    },
+    {
+      "id": 6,
+      "cidadeId": 1,
+      "nomeCompleto": "Rafaela Costa",
+      "email": "rafaela.costa@email.com"
     }
   ]
 }
