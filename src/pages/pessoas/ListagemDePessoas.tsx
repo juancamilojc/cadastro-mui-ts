@@ -56,7 +56,7 @@ export const ListagemDePessoas: React.FC = () => {
         }
       });
     });
-  }, [busca, pagina, debounce]);
+  }, [busca, pagina]);
 
   return (
     <LayoutBaseDePagina
